@@ -1,6 +1,6 @@
 # react-full-stack-multiple
 
-This is a boilerplate to build a full stack web application using multiple React applications, Node.js, Express and Webpack. This repo heavily references travis-ci's repo https://travis-ci.org/crsandeep/react-full-stack-multiple, and it is an extension to allow for multiple React apps.
+This is a boilerplate to build a full stack web application using multiple React applications, Node.js, Express and Webpack. This repo heavily references crsanddeep's repo https://github.com/crsandeep/simple-react-full-stack, and it is an extension to allow for multiple React apps.
 It is also configured with webpack-dev-server, eslint, prettier and babel.
 
 - [react-full-stack-multiple](#react-full-stack-multiple)
@@ -38,9 +38,7 @@ In the production mode, we will have only 1 server running. All the client side 
 ## Quick Start
 
 ```bash
-# Clone the repository
-
-# Go inside the directory
+# Clone the repository and go inside the directory
 cd react-full-stack-multiple
 
 # Install dependencies

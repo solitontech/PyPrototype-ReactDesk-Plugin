@@ -38,6 +38,8 @@ In the production mode, we will have only 1 server running. All the client side 
 ## Quick Start
 
 ```bash
+# Make sure you have admin privileges, or use sudo, or else you will get an EACCESSDENIED error
+
 # Clone the repository and go inside the directory
 cd react-full-stack-multiple
 

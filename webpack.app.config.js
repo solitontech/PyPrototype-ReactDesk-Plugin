@@ -2,13 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist/original';
+const outputDirectory = 'dist';
 
 module.exports = {
   entry: {
     index: './src/client/index.js',
-    abc: './src/plugins/abc/index.js',
-    xyz: './src/plugins/xyz/index.js'
   },
   output: {
     path: path.join(__dirname, outputDirectory),
@@ -55,15 +53,5 @@ module.exports = {
       filename: 'index.html',
       chunks: ['index']
     }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'plugins/abc/index.html',
-      chunks: ['abc']
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'plugins/xyz/index.html',
-      chunks: ['xyz']
-    })
   ]
 };

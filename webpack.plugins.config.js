@@ -2,17 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist/original';
+const outputDirectory = 'dist/plugins';
 
 module.exports = {
   entry: {
-    index: './src/client/index.js',
+    // index: './src/client/index.js',
     abc: './src/plugins/abc/index.js',
-    xyz: './src/plugins/xyz/index.js'
+    xyz: './src/plugins/xyz/index.js',
+    qwe: './src/plugins/qwe/index.js',
   },
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: 'static/js/[name].bundle.js'
+    filename: '[name]/[name].bundle.js'
   },
   module: {
     rules: [
@@ -48,22 +49,20 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      favicon: './public/favicon.ico',
-      filename: 'index.html',
-      chunks: ['index']
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'plugins/abc/index.html',
+      filename: 'abc/index.html',
       chunks: ['abc']
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      filename: 'plugins/xyz/index.html',
+      filename: 'xyz/index.html',
       chunks: ['xyz']
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'qwe/index.html',
+      chunks: ['qwe']
     })
   ]
 };

@@ -1,3 +1,6 @@
+// use the below command on root dir to build plugin individually
+// npx webpack --mode production --config .\src\plugins\qwe\webpack.plugin.config.js
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');

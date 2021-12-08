@@ -1,18 +1,22 @@
+// use the below command on root dir to build plugin individually
+// npx webpack --mode production --config .\src\plugins\abc\webpack.plugin.config.js
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist/original';
+const outputDirectory = 'dist/plugins';
+const pluginName = path.basename(__dirname);
+
+let entry = {};
+entry[`${pluginName}`] = `./src/plugins/${pluginName}/index.js`;
+console.log(entry);
 
 module.exports = {
-  entry: {
-    index: './src/client/index.js',
-    abc: './src/plugins/abc/index.js',
-    xyz: './src/plugins/xyz/index.js'
-  },
+  entry,
   output: {
-    path: path.join(__dirname, outputDirectory),
-    filename: 'static/js/[name].bundle.js'
+    path: path.join(__dirname,'../../../', outputDirectory),
+    filename: '[name]/[name].bundle.js'
   },
   module: {
     rules: [
@@ -48,22 +52,10 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      favicon: './public/favicon.ico',
-      filename: 'index.html',
-      chunks: ['index']
+      filename: `${pluginName}/index.html`,
+      chunks: [pluginName]
     }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'plugins/abc/index.html',
-      chunks: ['abc']
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'plugins/xyz/index.html',
-      chunks: ['xyz']
-    })
   ]
 };
